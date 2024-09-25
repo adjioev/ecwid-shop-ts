@@ -130,7 +130,7 @@ const products = [
     inStock: true,
     size: 'Large',
     imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-01.jpg',
-    imageAlt: "Front of men's Basic Tee in sienna.",
+    imageAlt: "Front of men's Basic Tee in sien na.",
   },
   {
     id: 2,

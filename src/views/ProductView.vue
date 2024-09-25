@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import Product from "@/components/Product/Product.vue";
+import { useRoute } from 'vue-router';
 
-import ProductGrid from "@/components/ProductGrid/ProductGrid.vue";
+const route = useRoute();
+const productId = route.params.id;
 </script>
 
 <template>
-<h2>Product view</h2>
-  <ProductGrid />
+  <Product :id="productId" />
 </template>
 
 <style scoped>

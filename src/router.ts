@@ -4,8 +4,6 @@ import ProductListView from './views/ProductListView.vue';
 import CartView from './views/CartView.vue';
 import Default from './layouts/Default.vue';
 
-// import App from './App.vue';
-
 const routes = [
     {
         path: '/',
@@ -20,8 +18,10 @@ const routes = [
                 component: ProductListView,
             },
             {
-                path: 'product',
+                path: 'products/:id',
+                name: "ProductDetail",
                 component: ProductView,
+                props: true,
             },
             {
                 path: 'cart',

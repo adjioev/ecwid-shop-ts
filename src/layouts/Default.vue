@@ -5,7 +5,7 @@ import FooterComponent from "@/components/Footer/FooterComponent.vue";
 
 <template>
   <div class="flex flex-col min-h-screen">
-    <HeaderComponent class="sticky top-0 z-10000" />
+    <HeaderComponent class="sticky top-0 z-1000" />
     <main class="w-full flex-grow mx-auto">
       <router-view />
     </main>
