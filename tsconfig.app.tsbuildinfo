@@ -1,0 +1,1 @@
+{"root":["./src/main.ts","./src/vite-env.d.ts","./src/api/useecwidapi.ts","./src/app.vue","./src/components/helloworld.vue","./src/components/page.vue","./src/components/product/product.vue","./src/components/product/productcomponent.vue"],"errors":true,"version":"5.6.2"}
