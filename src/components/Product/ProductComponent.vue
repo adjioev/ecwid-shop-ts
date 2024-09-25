@@ -171,7 +171,6 @@
 
 <script setup lang="ts">
 import {ref} from "vue";
-import {StarIcon} from "@heroicons/vue/20/solid";
 import {RadioGroup, RadioGroupOption} from "@headlessui/vue";
 import {
   CurrencyDollarIcon,
@@ -180,10 +179,6 @@ import {
 import { Product } from '@/types/ProductInterfaces';
 
 const props = defineProps({
-  testMe: {
-    type: String,
-    required: false
-  },
   productData: {
     type: Object as PropType<Product>,
     required: true,
