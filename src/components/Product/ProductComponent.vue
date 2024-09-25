@@ -162,58 +162,6 @@
                   v-html="productData.description"
               />
             </div>
-
-            <div class="mt-8 border-t border-gray-200 pt-8">
-              <h2 class="text-sm font-medium text-gray-900">
-                Fabric &amp; Care
-              </h2>
-
-              <div class="prose prose-sm mt-4 text-gray-500">
-                <ul role="list">
-                  <li
-                      v-for="item in product.details"
-                      :key="item"
-                  >
-                    {{ item }}
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Policies -->
-            <section
-                aria-labelledby="policies-heading"
-                class="mt-10"
-            >
-              <h2 id="policies-heading" class="sr-only">
-                Our Policies
-              </h2>
-
-              <dl
-                  class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2"
-              >
-                <div
-                    v-for="policy in policies"
-                    :key="policy.name"
-                    class="rounded-lg border border-gray-200 bg-gray-50 p-6 text-center"
-                >
-                  <dt>
-                    <component
-                        :is="policy.icon"
-                        class="mx-auto h-6 w-6 flex-shrink-0 text-gray-400"
-                        aria-hidden="true"
-                    />
-                    <span
-                        class="mt-4 text-sm font-medium text-gray-900"
-                    >{{ policy.name }}</span
-                    >
-                  </dt>
-                  <dd class="mt-1 text-sm text-gray-500">
-                    {{ policy.description }}
-                  </dd>
-                </div>
-              </dl>
-            </section>
           </div>
         </div>
       </div>
