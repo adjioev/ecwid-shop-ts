@@ -3,7 +3,7 @@ const TOKEN = "public_RiNvjTVVzKLhFNWyzR5fNY68u1GMHLEs";
 
 
 
-export const fetchProducts = async (product: string) => {
+export const fetchProducts = async () => {
     try {
         const response = await fetch(`https://app.ecwid.com/api/v3/${STORE_ID}/products`, {
             method: 'GET',

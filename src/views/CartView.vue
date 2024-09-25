@@ -1,9 +1,10 @@
 <script setup lang="ts">
 
+import CartComponent from "@/components/Cart/CartComponent.vue";
 </script>
 
 <template>
-<h2>Cart View</h2>
+  <CartComponent />
 </template>
 
 <style scoped>
