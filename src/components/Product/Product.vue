@@ -5,12 +5,19 @@ import ProductComponent from "@/components/Product/ProductComponent.vue";
 
 
 const productData = ref(null);
-const productId = '694687566';
 const error = ref(null);
+
+
+const props = defineProps({
+  id: {
+    type: String,
+    required: true,
+  },
+});
 
 onMounted(async () => {
   try {
-    productData.value = await fetchProductById(productId);
+    productData.value = await fetchProductById(props.id);
   } catch (err) {
     error.value = err.message || 'Failed to fetch product';
     console.error(err);
