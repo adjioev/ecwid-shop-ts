@@ -1,50 +1,40 @@
-const STORE_ID = 108362264;
-const TOKEN = "public_RiNvjTVVzKLhFNWyzR5fNY68u1GMHLEs";
+// Access environment variables from .env file
+const STORE_ID = import.meta.env.VITE_STORE_ID;
+const TOKEN = import.meta.env.VITE_API_TOKEN;
+const BASE_URL = `${import.meta.env.VITE_BASE_URL}${STORE_ID}/`;
 
+const headers = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'Authorization': `Bearer ${TOKEN}`,
+};
 
-
-export const fetchProducts = async () => {
+// Helper function to handle API requests
+const apiRequest = async <T>(endpoint: string, options: RequestInit = {}): Promise<T> => {
     try {
-        const response = await fetch(`https://app.ecwid.com/api/v3/${STORE_ID}/products`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'accept': 'application/json',
-                'Authorization': `Bearer ${TOKEN}`
-            }
+        const response = await fetch(`${BASE_URL}${endpoint}`, {
+            ...options,
+            headers,
         });
+
         if (!response.ok) {
-            throw new Error(`Error fetching product: ${response.statusText}`);
+            throw new Error(`Error fetching data: ${response.statusText}`);
         }
-        const productData = await response.json();
-        return productData;
+
+        const data = await response.json();
+        return data as T;
     } catch (error) {
-        console.error("Failed to fetch product:", error);
+        console.error("API request failed:", error);
         throw error;
     }
 };
 
-
-
-export const fetchProductById = async (productId: string) => {
-    try {
-        const response = await fetch(`https://app.ecwid.com/api/v3/${STORE_ID}/products/${productId}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'accept': 'application/json',
-                'Authorization': `Bearer ${TOKEN}`
-            }
-        });
-        if (!response.ok) {
-            throw new Error(`Error fetching product: ${response.statusText}`);
-        }
-        const productData = await response.json();
-        return productData;
-    } catch (error) {
-        console.error("Failed to fetch product:", error);
-        throw error; // Rethrow the error for the caller to handle
-    }
+// Fetch all products
+export const fetchProducts = async (): Promise<any> => {
+    return apiRequest<any>('products');
 };
 
-
+// Fetch product by ID
+export const fetchProductById = async (productId: string): Promise<any> => {
+    return apiRequest<any>(`products/${productId}`);
+};
