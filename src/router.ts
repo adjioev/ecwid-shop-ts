@@ -3,6 +3,7 @@ import ProductView from './views/ProductView.vue';
 import ProductListView from './views/ProductListView.vue';
 import CartView from './views/CartView.vue';
 import Default from './layouts/Default.vue';
+import AboutView from "./views/AboutView.vue";
 
 const routes = [
     {
@@ -26,6 +27,10 @@ const routes = [
             {
                 path: 'cart',
                 component: CartView,
+            },
+            {
+                path: 'about',
+                component: AboutView,
             },
         ],
     },
