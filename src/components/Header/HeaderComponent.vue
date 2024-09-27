@@ -23,7 +23,7 @@
             <router-link to="/cart">
             <span href="#" class="group -m-2 flex items-center p-2">
               <ShoppingBagIcon class="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500" aria-hidden="true" />
-              <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+              <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{{ cartItemCount }}</span>
               <span class="sr-only">items in cart, view bag</span>
             </span>
             </router-link>
@@ -76,6 +76,11 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { Bars3Icon, BellIcon, XMarkIcon, ShoppingBagIcon } from '@heroicons/vue/24/outline'
+import { useCartStore } from '@/stores/cart'
+
+const cartStore = useCartStore();
+const cartItemCount = computed(() => cartStore.cartItemCount)
 </script>

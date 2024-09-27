@@ -2,8 +2,9 @@
 import { ref, onMounted } from 'vue';
 import { fetchProductById } from '@/api/useEcwidApi.ts';
 import ProductComponent from "@/components/Product/ProductComponent.vue";
+import { useCartStore } from '@/stores/cart'
 
-
+const cartStore = useCartStore()
 const productData = ref(null);
 const error = ref(null);
 
@@ -14,6 +15,11 @@ const props = defineProps({
     required: true,
   },
 });
+
+const handleAddToCart = (product: CartItem) => {
+  console.log("Adding to cart", product);
+  cartStore.addToCart(product);
+}
 
 onMounted(async () => {
   try {
@@ -27,7 +33,7 @@ onMounted(async () => {
 
 <template>
   <div v-if="productData">
-      <ProductComponent :productData="productData" />
+      <ProductComponent :productData="productData"  @add-to-cart="handleAddToCart" />
   </div>
   <div v-else-if="error">
     <p>Error: {{ error }}</p>

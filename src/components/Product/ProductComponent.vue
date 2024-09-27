@@ -144,7 +144,8 @@
               </div>
 
               <button
-                  type="submit"
+                  type="button"
+                  @click="addItemToCart"
                   class="mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Add to cart
@@ -177,6 +178,7 @@ import {
   GlobeAmericasIcon,
 } from "@heroicons/vue/24/outline";
 import { Product } from '@/types/ProductInterfaces';
+import {CartItem} from "@/types/CartItem.ts";
 
 const props = defineProps({
   productData: {
@@ -184,6 +186,22 @@ const props = defineProps({
     required: true,
   },
 });
+
+const emit = defineEmits<{
+  (e: 'add-to-cart', product: CartItem): void
+}>()
+
+const addItemToCart = () => {
+  const product: CartItem = {
+    id: props.productData.id,
+    name: props.productData.name,
+    price: props.productData.price,
+    quantity: 1
+  };
+
+  console.log("Product data", product);
+  emit('add-to-cart', product)
+}
 
 const product = {
   name: "Basic Tee",
