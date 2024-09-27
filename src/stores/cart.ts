@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { CartItem } from '@/types/CartItem.ts'
 
-//TODO: those are fake numbers, just fpr a demo
+//TODO: those are fake numbers, just for a demo
 const SHIPPING_PRICE = 5.00;
 const TAX_RATE = 0.20;
 
@@ -21,8 +21,10 @@ export const useCartStore = defineStore('cart', {
         removeFromCart(itemId: string) {
             this.items = this.items.filter(item => item.id !== itemId)
         },
-        clearCart() {
-            this.items = []
+
+        checkout() {
+            this.items = [];
+            // TODO: rest of the checkout logic
         }
     },
     getters: {

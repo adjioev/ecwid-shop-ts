@@ -28,9 +28,6 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits<{
-  (e: 'remove-from-cart', itemId: string): void
-}>()
 
 const removeItemFromCart = (itemId) => {
   emit('remove-from-cart', itemId)
