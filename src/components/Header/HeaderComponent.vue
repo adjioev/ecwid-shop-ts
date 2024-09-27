@@ -3,8 +3,11 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 justify-between">
         <div class="flex">
+
+
+
           <div class="flex flex-shrink-0 items-center">
-            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" />
+            <img  class="h-8 w-auto" :src="logo" alt="Logo" />
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
             <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
@@ -75,12 +78,13 @@
   </Disclosure>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { Bars3Icon, BellIcon, XMarkIcon, ShoppingBagIcon } from '@heroicons/vue/24/outline'
 import { useCartStore } from '@/stores/cart'
 
 const cartStore = useCartStore();
 const cartItemCount = computed(() => cartStore.cartItemCount)
+const logo = new URL('@/assets/lasha-logo.png', import.meta.url).href;
 </script>
