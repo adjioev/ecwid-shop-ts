@@ -12,10 +12,12 @@ const routes = [
         children: [
             {
                 path: '',
+                name: "Home",
                 component: ProductListView,
             },
             {
                 path: 'products',
+                name: "ProductsList",
                 component: ProductListView,
             },
             {
@@ -26,10 +28,12 @@ const routes = [
             },
             {
                 path: 'cart',
+                name: "Cart",
                 component: CartView,
             },
             {
                 path: 'about',
+                name: "About",
                 component: AboutView,
             },
         ],

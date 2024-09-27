@@ -5,9 +5,10 @@
         <div class="flex">
 
 
-
           <div class="flex flex-shrink-0 items-center">
+          <router-link :to="{ name: 'Home' }" >
             <img  class="h-8 w-auto" :src="logo" alt="Logo" />
+          </router-link>
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
             <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
