@@ -16,5 +16,4 @@ const cartStore = useCartStore();
 </template>
 
 <style scoped>
-
 </style>

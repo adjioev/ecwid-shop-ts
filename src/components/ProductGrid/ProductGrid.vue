@@ -25,7 +25,6 @@ onMounted(async () => {
     <p>Error: {{ error }}</p>
   </div>
   <div v-else>
-    <p>Loading...</p>
   </div>
 </template>
 

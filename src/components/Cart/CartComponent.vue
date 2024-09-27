@@ -33,17 +33,6 @@
 
                   <div class="mt-4 sm:mt-0 sm:pr-9">
                     <label :for="`quantity-${productIdx}`" class="sr-only">Quantity, {{ product.name }}</label>
-                    <select :id="`quantity-${productIdx}`" :name="`quantity-${productIdx}`" class="max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                      <option value="7">7</option>
-                      <option value="8">8</option>
-                    </select>
-
                     <div class="absolute right-0 top-0">
                       <button @click="removeItem(product.id)" type="button" class="-m-2 inline-flex p-2 text-gray-400 hover:text-gray-500">
                         <span class="sr-only">Remove</span>
@@ -52,6 +41,12 @@
                     </div>
                   </div>
                 </div>
+
+                <p class="mt-4 flex space-x-2 text-sm text-gray-700">
+                  <CheckIcon v-if="product.inStock" class="h-5 w-5 flex-shrink-0 text-green-500" aria-hidden="true" />
+                  <ClockIcon v-else class="h-5 w-5 flex-shrink-0 text-gray-300" aria-hidden="true" />
+                  <span>{{ product.inStock ? 'In stock' : `Ships in ${product.leadTime}` }}</span>
+                </p>
               </div>
             </li>
           </ul>
@@ -66,7 +61,7 @@
 
 <script setup lang="ts">
 import { PropType } from 'vue';
-import { XMarkIcon } from '@heroicons/vue/20/solid'
+import { XMarkIcon, CheckIcon } from '@heroicons/vue/20/solid'
 import {CartItem } from "@/types/CartItem.ts";
 import OrderSummary from "@/components/Cart/OrderSummary.vue";
 

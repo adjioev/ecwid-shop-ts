@@ -21,12 +21,6 @@ export const useCartStore = defineStore('cart', {
         removeFromCart(itemId: string) {
             this.items = this.items.filter(item => item.id !== itemId)
         },
-        updateQuantity(itemId: string, quantity: number) {
-            const item = this.items.find((i: CartItem) => i.id === itemId)
-            if (item) {
-                item.quantity = quantity
-            }
-        },
         clearCart() {
             this.items = []
         }
@@ -44,7 +38,7 @@ export const useCartStore = defineStore('cart', {
             return parseFloat((this.cartTotal * TAX_RATE).toFixed(2));
         },
         shippingEstimate(): string {
-            return SHIPPING_PRICE.toFixed(2); // Shipping is displayed as "5.00"
+            return SHIPPING_PRICE.toFixed(2);
         },
         totalWithTaxAndShipping(): number {
             return parseFloat((this.cartTotal + this.taxEstimate + SHIPPING_PRICE).toFixed(2));
