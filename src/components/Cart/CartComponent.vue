@@ -5,11 +5,15 @@
       <form class="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
         <section aria-labelledby="cart-heading" class="lg:col-span-7">
           <h2 id="cart-heading" class="sr-only">Items in your shopping cart</h2>
-
           <ul role="list" class="divide-y divide-gray-200 border-b border-t border-gray-200">
-            <li v-for="(product, productIdx) in products" :key="product.id" class="flex py-6 sm:py-10">
+            <li v-for="(product, productIdx) in items" :key="product.id" class="flex py-6 sm:py-10">
               <div class="flex-shrink-0">
-                <img :src="product.imageSrc" :alt="product.imageAlt" class="h-24 w-24 rounded-md object-cover object-center sm:h-48 sm:w-48" />
+                <router-link
+                    :key="product.id"
+                    :to="{ name: 'ProductDetail', params: { id: product.id } }"
+                >
+                <img :src="product.url" :alt="product.imageAlt" class="h-24 w-24 rounded-md object-cover object-center sm:h-48 sm:w-48" />
+                </router-link>
               </div>
 
               <div class="ml-4 flex flex-1 flex-col justify-between sm:ml-6">
@@ -41,7 +45,7 @@
                     </select>
 
                     <div class="absolute right-0 top-0">
-                      <button type="button" class="-m-2 inline-flex p-2 text-gray-400 hover:text-gray-500">
+                      <button @click="removeItem(product.id)" type="button" class="-m-2 inline-flex p-2 text-gray-400 hover:text-gray-500">
                         <span class="sr-only">Remove</span>
                         <XMarkIcon class="h-5 w-5" aria-hidden="true" />
                       </button>
@@ -103,8 +107,25 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { PropType } from 'vue';
 import { CheckIcon, ClockIcon, QuestionMarkCircleIcon, XMarkIcon } from '@heroicons/vue/20/solid'
+import {CartItem } from "@/types/CartItem.ts";
+
+const props = defineProps({
+  items: {
+    type: Array as PropType<CartItem[]>,
+    required: true,
+  },
+});
+
+const emit = defineEmits<{
+  (e: 'remove-from-cart', product: CartItem): void
+}>()
+
+const removeItem = (itemId) => {
+  emit('remove-from-cart', itemId)
+}
 
 const products = [
   {

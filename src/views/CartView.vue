@@ -1,10 +1,10 @@
 <script setup lang="ts">
 
-import CartComponent from "@/components/Cart/CartComponent.vue";
+import Cart from "@/components/Cart/Cart.vue";
 </script>
 
 <template>
-  <CartComponent />
+  <Cart />
 </template>
 
 <style scoped>

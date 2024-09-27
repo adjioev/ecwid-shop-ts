@@ -17,7 +17,6 @@ const props = defineProps({
 });
 
 const handleAddToCart = (product: CartItem) => {
-  console.log("Adding to cart", product);
   cartStore.addToCart(product);
 }
 

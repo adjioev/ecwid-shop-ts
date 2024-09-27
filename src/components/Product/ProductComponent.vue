@@ -195,11 +195,12 @@ const addItemToCart = () => {
   const product: CartItem = {
     id: props.productData.id,
     name: props.productData.name,
+    url: props.productData.thumbnailUrl,
     price: props.productData.price,
+    inStock: props.productData.inStock,
     quantity: 1
   };
 
-  console.log("Product data", product);
   emit('add-to-cart', product)
 }
 
