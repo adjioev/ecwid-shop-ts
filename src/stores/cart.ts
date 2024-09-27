@@ -1,13 +1,17 @@
 import { defineStore } from 'pinia'
-import { CartItem } from '@/types/cart'
+import { CartItem } from '@/types/CartItem.ts'
+
+//TODO: those are fake numbers, just fpr a demo
+const SHIPPING_PRICE = 5.00;
+const TAX_RATE = 0.20;
 
 export const useCartStore = defineStore('cart', {
     state: () => ({
-        items: [] as CartItem[] // Use CartItem[] for the items array
+        items: [] as CartItem[]
     }),
     actions: {
         addToCart(item: CartItem) {
-            const existingItem = this.items.find(i => i.id === item.id)
+            const existingItem = this.items.find((i: CartItem) => i.id === item.id)
             if (existingItem) {
                 existingItem.quantity += item.quantity
             } else {
@@ -18,7 +22,7 @@ export const useCartStore = defineStore('cart', {
             this.items = this.items.filter(item => item.id !== itemId)
         },
         updateQuantity(itemId: string, quantity: number) {
-            const item = this.items.find(i => i.id === itemId)
+            const item = this.items.find((i: CartItem) => i.id === itemId)
             if (item) {
                 item.quantity = quantity
             }
@@ -29,10 +33,21 @@ export const useCartStore = defineStore('cart', {
     },
     getters: {
         cartTotal(): number {
-            return this.items.reduce((total, item) => total + item.price * item.quantity, 0)
+            return parseFloat(
+                this.items.reduce((total: number, item: CartItem) => total + item.price * item.quantity, 0).toFixed(2)
+            );
         },
         cartItemCount(): number {
-            return this.items.reduce((count, item) => count + item.quantity, 0)
+            return this.items.reduce((count: number, item: CartItem) => count + item.quantity, 0)
+        },
+        taxEstimate(): number {
+            return parseFloat((this.cartTotal * TAX_RATE).toFixed(2));
+        },
+        shippingEstimate(): string {
+            return SHIPPING_PRICE.toFixed(2); // Shipping is displayed as "5.00"
+        },
+        totalWithTaxAndShipping(): number {
+            return parseFloat((this.cartTotal + this.taxEstimate + SHIPPING_PRICE).toFixed(2));
         }
     },
     persist: {

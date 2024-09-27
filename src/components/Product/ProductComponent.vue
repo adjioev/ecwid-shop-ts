@@ -171,12 +171,8 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue";
+import {PropType, ref} from "vue";
 import {RadioGroup, RadioGroupOption} from "@headlessui/vue";
-import {
-  CurrencyDollarIcon,
-  GlobeAmericasIcon,
-} from "@heroicons/vue/24/outline";
 import { Product } from '@/types/ProductInterfaces';
 import {CartItem} from "@/types/CartItem.ts";
 
@@ -268,18 +264,6 @@ const product = {
     "Machine wash cold with similar colors",
   ],
 };
-const policies = [
-  {
-    name: "International delivery",
-    icon: GlobeAmericasIcon,
-    description: "Get your order in 2 years",
-  },
-  {
-    name: "Loyalty rewards",
-    icon: CurrencyDollarIcon,
-    description: "Don't look at other tees",
-  },
-];
 
 const selectedColor = ref(product.colors[0]);
 const selectedSize = ref(product.sizes[2]);
