@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import ProductView from './views/ProductView.vue';
 import ProductListView from './views/ProductListView.vue';
+import AboutView from "./views/AboutView.vue";
 import CartView from './views/CartView.vue';
 import Default from './layouts/Default.vue';
-import AboutView from "./views/AboutView.vue";
 
 const routes = [
     {

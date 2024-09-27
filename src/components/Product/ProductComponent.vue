@@ -1,9 +1,5 @@
 <template>
-  <div class="bg-white">
     <div class="pb-16 pt-6 sm:pb-24">
-      <div
-          class="mx-auto mt-8 max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8"
-      >
         <div
             class="lg:grid lg:auto-rows-min lg:grid-cols-12 lg:gap-x-8"
         >
@@ -45,51 +41,7 @@
           <div class="mt-8 lg:col-span-5">
             <form>
               <!-- Color picker -->
-              <div>
-                <h2 class="text-sm font-medium text-gray-900">
-                  Color
-                </h2>
-
-                <fieldset
-                    aria-label="Choose a color"
-                    class="mt-2"
-                >
-                  <RadioGroup
-                      v-model="selectedColor"
-                      class="flex items-center space-x-3"
-                  >
-                    <RadioGroupOption
-                        as="template"
-                        v-for="color in product.colors"
-                        :key="color.name"
-                        :value="color"
-                        :aria-label="color.name"
-                        v-slot="{ active, checked }"
-                    >
-                      <div
-                          :class="[
-                                                    color.selectedColor,
-                                                    active && checked
-                                                        ? 'ring ring-offset-1'
-                                                        : '',
-                                                    !active && checked
-                                                        ? 'ring-2'
-                                                        : '',
-                                                    'relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none',
-                                                ]"
-                      >
-                                                <span
-                                                    aria-hidden="true"
-                                                    :class="[
-                                                        color.bgColor,
-                                                        'h-8 w-8 rounded-full border border-black border-opacity-10',
-                                                    ]"
-                                                />
-                      </div>
-                    </RadioGroupOption>
-                  </RadioGroup>
-                </fieldset>
-              </div>
+              <ColorPickerComponent :colors="product.colors"/>
 
               <!-- Size picker -->
               <div class="mt-8">
@@ -165,9 +117,7 @@
             </div>
           </div>
         </div>
-      </div>
     </div>
-  </div>
 </template>
 
 <script setup lang="ts">
@@ -175,6 +125,7 @@ import {PropType, ref} from "vue";
 import {RadioGroup, RadioGroupOption} from "@headlessui/vue";
 import { Product } from '@/types/ProductInterfaces';
 import {CartItem} from "@/types/CartItem.ts";
+import ColorPickerComponent from "@/components/ColorPicker/ColorPickerComponent.vue";
 
 const props = defineProps({
   productData: {
