@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { fetchProducts } from '@/api/useEcwidApi.ts';
+import {onMounted, ref} from 'vue';
+import {fetchProducts} from '@/api/useEcwidApi.ts';
 import ProductGridComponent from "./ProductGridComponent.vue";
 
 
 const productsData = ref(null);
-const error = ref(null);
+const error = ref<string | null>(null);
 
 onMounted(async () => {
   try {
     productsData.value = await fetchProducts();
   } catch (err) {
-    error.value = err.message || 'Failed to fetch product';
+    error.value = (err as Error).message || 'Failed to fetch product';
     console.error(err);
   }
 });

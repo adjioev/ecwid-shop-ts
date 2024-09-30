@@ -40,9 +40,6 @@
 
           <div class="mt-8 lg:col-span-5">
             <form>
-              <!-- Color picker -->
-              <ColorPickerComponent :colors="product.colors"/>
-
               <!-- Size picker -->
               <div class="mt-8">
                 <div class="flex items-center justify-between">
@@ -125,7 +122,6 @@ import {PropType, ref} from "vue";
 import {RadioGroup, RadioGroupOption} from "@headlessui/vue";
 import { Product } from '@/types/ProductInterfaces';
 import {CartItem} from "@/types/CartItem.ts";
-import ColorPickerComponent from "@/components/ColorPicker/ColorPickerComponent.vue";
 
 const props = defineProps({
   productData: {
@@ -152,18 +148,6 @@ const addItemToCart = () => {
 }
 
 const product = {
-  colors: [
-    {
-      name: "Black",
-      bgColor: "bg-gray-900",
-      selectedColor: "ring-gray-900",
-    },
-    {
-      name: "Heather Grey",
-      bgColor: "bg-gray-400",
-      selectedColor: "ring-gray-400",
-    },
-  ],
   sizes: [
     {name: "XXS", inStock: true},
     {name: "XS", inStock: true},
@@ -174,6 +158,5 @@ const product = {
   ]
 };
 
-const selectedColor = ref(product.colors[0]);
 const selectedSize = ref(product.sizes[2]);
 </script>

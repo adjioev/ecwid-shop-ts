@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import {QuestionMarkCircleIcon} from "@heroicons/vue/20/solid";
 
-const props = defineProps({
+defineProps({
   currencySign: {
     type: String,
     required: true,
   },
   subTotal: {
-    type: String,
+    type: Number,
     required: true,
   },
   shipping: {
@@ -15,11 +14,11 @@ const props = defineProps({
     required: true,
   },
   tax: {
-    type: String,
+    type: Number,
     required: true,
   },
   total: {
-    type: String,
+    type: Number,
     required: true,
   },
 });

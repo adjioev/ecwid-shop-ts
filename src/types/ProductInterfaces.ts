@@ -7,5 +7,14 @@ export interface Product {
     thumbnailUrl: string;
     galleryImages: string[];
     inStock: boolean;
+    media: {
+        images: ProductImage[];
+    };
 }
 
+export interface ProductImage {
+    id: string;
+    imageOriginalUrl: string;
+    imageAlt: string;
+    isMain: boolean;
+}

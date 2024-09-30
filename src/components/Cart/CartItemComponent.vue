@@ -3,7 +3,7 @@ import { PropType } from 'vue';
 import {CheckIcon, ClockIcon, XMarkIcon} from "@heroicons/vue/20/solid";
 import {CartItem } from "@/types/CartItem.ts";
 
-const props = defineProps({
+ defineProps({
   product: {
     type: Object as PropType<CartItem>,
     required: true,
@@ -39,11 +39,10 @@ const removeItem = (itemId: string) => {
       <div>
         <div class="flex justify-between">
           <h3 class="text-sm">
-            <a :href="product.href" class="font-medium text-gray-700 hover:text-gray-800">{{ product.name }}</a>
+            <a href="#" class="font-medium text-gray-700 hover:text-gray-800">{{ product.name }}</a>
           </h3>
         </div>
         <div class="mt-1 flex text-sm">
-          <p class="text-gray-500">{{ product.color }}</p>
           <p v-if="product.size" class="ml-4 border-l border-gray-200 pl-4 text-gray-500">{{ product.size }}</p>
         </div>
         <p class="mt-1 text-sm font-medium text-gray-900">Quantity: {{ product.quantity }}</p>

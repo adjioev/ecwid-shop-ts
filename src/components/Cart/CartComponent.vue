@@ -20,8 +20,13 @@
 import { PropType } from 'vue';
 import CartItemComponent from "@/components/Cart/CartItemComponent.vue";
 import OrderSummary from "@/components/Cart/OrderSummary.vue";
+import {CartItem} from "@/types/CartItem.ts";
 
-const props = defineProps({
+const emit = defineEmits<{
+  (event: 'remove-from-cart', itemId: string): void;
+}>();
+
+defineProps({
   items: {
     type: Array as PropType<CartItem[]>,
     required: true,
@@ -29,7 +34,7 @@ const props = defineProps({
 });
 
 
-const removeItemFromCart = (itemId) => {
+const removeItemFromCart = (itemId: string) => {
   emit('remove-from-cart', itemId)
 }
 </script>

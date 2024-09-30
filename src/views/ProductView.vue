@@ -3,7 +3,7 @@ import Product from "@/components/Product/Product.vue";
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-const productId = route.params.id;
+const productId = route.params.id as string;
 </script>
 
 <template>
@@ -11,5 +11,4 @@ const productId = route.params.id;
 </template>
 
 <style scoped>
-
 </style>

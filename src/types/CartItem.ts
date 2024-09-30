@@ -5,4 +5,6 @@ export interface CartItem {
     url: string;
     price: number;
     quantity: number;
+    size?: string;
+    leadTime?: string;
 }

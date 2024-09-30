@@ -7,8 +7,7 @@ import {CartItem } from "@/types/CartItem.ts";
 
 const cartStore = useCartStore()
 const productData = ref(null);
-const error = ref(null);
-
+const error = ref<string | null>(null);
 
 const props = defineProps({
   id: {
@@ -25,7 +24,7 @@ onMounted(async () => {
   try {
     productData.value = await fetchProductById(props.id);
   } catch (err) {
-    error.value = err.message || 'Failed to fetch product';
+    error.value = (err as Error).message || 'Failed to fetch product';
     console.error(err);
   }
 });
