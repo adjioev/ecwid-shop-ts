@@ -16,11 +16,9 @@ const apiRequest = async <T>(endpoint: string, options: RequestInit = {}): Promi
             ...options,
             headers,
         });
-
         if (!response.ok) {
             throw new Error(`Error fetching data: ${response.statusText}`);
         }
-
         const data = await response.json();
         return data as T;
     } catch (error) {
@@ -30,6 +28,7 @@ const apiRequest = async <T>(endpoint: string, options: RequestInit = {}): Promi
 };
 
 // Fetch all products
+// TODO: demo version, its must support pagination
 export const fetchProducts = async (): Promise<any> => {
     return apiRequest<any>('products');
 };
@@ -37,4 +36,14 @@ export const fetchProducts = async (): Promise<any> => {
 // Fetch product by ID
 export const fetchProductById = async (productId: string): Promise<any> => {
     return apiRequest<any>(`products/${productId}`);
+};
+
+// Fetch all categories
+export const fetchCategories = async (): Promise<any> => {
+    return apiRequest<any>('categories');
+};
+
+// fetch all category items
+export const fetchCategoryProducts = async (categoryId: string): Promise<any> => {
+    return apiRequest<any>('products?category=' + categoryId);
 };

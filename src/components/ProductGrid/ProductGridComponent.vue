@@ -1,4 +1,5 @@
 <template>
+    <div class="pb-16 pt-6 sm:pb-24">
       <h2 id="products-heading" class="sr-only">Products</h2>
       <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
         <router-link
@@ -20,6 +21,7 @@
           </div>
         </router-link>
       </div>
+    </div>
 </template>
 
 <script setup lang="ts">

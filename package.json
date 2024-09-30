@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build": "vue-tsc -b && vite build && cp dist/index.html dist/200.html",
+    "deploy": "surge dist ecwid-demo-shop.surge.sh",
     "preview": "vite preview"
   },
   "dependencies": {
