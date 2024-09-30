@@ -9,6 +9,12 @@
           </router-link>
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+            <ul>
+              <li v-for="category in categories" :key="category.id">
+                {{ category.name }}
+              </li>
+            </ul>
+
             <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
             <a href="#" class="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900">Our Collections</a>
             <a href="#" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Team</a>
@@ -81,9 +87,12 @@
 import { computed } from 'vue'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { Bars3Icon, BellIcon, XMarkIcon, ShoppingBagIcon } from '@heroicons/vue/24/outline'
-import { useCartStore } from '@/stores/cart'
+import { useCartStore } from '@/stores/cartStore'
+import { useCategoryStore } from '@/stores/categoryStore';
 
 const cartStore = useCartStore();
 const cartItemCount = computed(() => cartStore.cartItemCount)
+const categoryStore  = useCategoryStore();
+const categories = computed(() => categoryStore.categories)
 const logo = new URL('@/assets/lasha-logo.png', import.meta.url).href;
 </script>

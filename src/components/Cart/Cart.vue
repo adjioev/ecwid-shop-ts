@@ -2,7 +2,7 @@
 import { useRouter } from "vue-router";
 import Modal from "@/components/Modal/Modal.vue";
 import CartComponent from "@/components/Cart/CartComponent.vue";
-import { useCartStore } from '@/stores/cart'
+import { useCartStore } from '@/stores/cartStore'
 import { computed } from 'vue'
 import { CheckIcon } from '@heroicons/vue/24/outline'
 import {useModalStore} from "@/stores/modalStore.ts";

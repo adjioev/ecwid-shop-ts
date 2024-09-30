@@ -16,8 +16,8 @@
             />
           </div>
           <div class="mt-4 flex items-center justify-between text-base font-medium text-gray-900">
-            <h3>{{ product.name }}</h3>
-            <p>{{ product.defaultDisplayedPriceFormatted }}</p>
+            <h3 class="flex-1">{{ product.name }}</h3>
+            <p class="ml-4">{{ product.defaultDisplayedPriceFormatted }}</p>
           </div>
         </router-link>
       </div>

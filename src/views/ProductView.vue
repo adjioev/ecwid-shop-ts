@@ -5,10 +5,15 @@ import BreadcrumbsComponent from "@/components/Breadcrumbs/BreadcrumbsComponent.
 
 const route = useRoute();
 const productId = route.params.id as string;
+
+const pages = [
+  { name: 'Projects', href: '#', current: false },
+  { name: 'Project Nero', href: '#', current: true },
+]
 </script>
 
 <template>
-  <BreadcrumbsComponent />
+  <BreadcrumbsComponent :pages="pages"/>
   <Product :id="productId" />
 </template>
 

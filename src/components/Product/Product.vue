@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue';
 import { fetchProductById } from '@/api/useEcwidApi.ts';
 import ProductComponent from "@/components/Product/ProductComponent.vue";
-import { useCartStore } from '@/stores/cart'
+import { useCartStore } from '@/stores/cartStore'
 import {CartItem } from "@/types/CartItem.ts";
 
 const cartStore = useCartStore()

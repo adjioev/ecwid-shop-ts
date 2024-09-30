@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex" aria-label="Breadcrumb">
+  <nav v-if="pages && pages.length > 0" class="flex" aria-label="Breadcrumb">
     <ol role="list" class="flex items-center space-x-4">
       <li>
         <div>
@@ -21,11 +21,15 @@
   </nav>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { HomeIcon } from '@heroicons/vue/20/solid'
 
-const pages = [
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Project Nero', href: '#', current: true },
-]
+defineProps<{
+  pages: {
+    name: string;
+    href: string;
+    current: boolean;
+  }[];
+}>();
+
 </script>

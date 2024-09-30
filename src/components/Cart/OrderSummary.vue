@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import OrderSummaryComponent from "@/components/Cart/OrderSummaryComponent.vue";
-import {useCartStore} from "@/stores/cart.ts";
+import {useCartStore} from "@/stores/cartStore.ts";
 import {useModalStore} from "@/stores/modalStore.ts";
 
 const modalStore = useModalStore();
