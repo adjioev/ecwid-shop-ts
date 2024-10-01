@@ -5,8 +5,8 @@ import { fetchCategories } from "@/api/useEcwidApi.ts";
 export const useCategoryStore = defineStore('category', () => {
     const categories = ref([]);
 
-    const getCategoryNameById = (id: number) => {
-        const category = categories.value.find((category: any) => category.id === id);
+    const getCategoryNameById = (id: string) => {
+        const category = categories.value.find((category: any) => category.id.toString()  === id);
         return category ? category.name : '';
     };
 
