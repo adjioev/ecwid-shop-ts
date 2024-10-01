@@ -4,7 +4,7 @@ import ProductListView from './views/ProductListView.vue';
 import AboutView from "./views/AboutView.vue";
 import CartView from './views/CartView.vue';
 import Default from './layouts/Default.vue';
-import CategoryProducts from "@/views/CategoryProducts.vue";
+import CategoryProductsView from "@/views/CategoryProductsView.vue";
 
 const routes = [
     {
@@ -30,7 +30,7 @@ const routes = [
             {
                 path: 'categories/:id',
                 name: "CategoryProducts",
-                component: CategoryProducts,
+                component: CategoryProductsView,
                 props: true,
             },
             {
