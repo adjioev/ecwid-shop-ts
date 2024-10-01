@@ -91,14 +91,7 @@
                   </RadioGroup>
                 </fieldset>
               </div>
-
-              <button
-                  type="button"
-                  @click="addItemToCart"
-                  class="mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              >
-                Add to cart
-              </button>
+              <AddToCartAction @click="addItemToCart"/>
             </form>
 
             <!-- Product details -->
@@ -120,6 +113,7 @@
 <script setup lang="ts">
 import {PropType, ref} from "vue";
 import {RadioGroup, RadioGroupOption} from "@headlessui/vue";
+import AddToCartAction from "@/components/AddToCartAction/AddToCartAction.vue";
 import { Product } from '@/types/ProductInterfaces';
 import {CartItem} from "@/types/CartItem.ts";
 
