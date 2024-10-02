@@ -2,6 +2,7 @@ export interface Product {
     id: string;
     name: string;
     price: number;
+    defaultCategoryId: number;
     defaultDisplayedPriceFormatted: string;
     description: string;
     thumbnailUrl: string;

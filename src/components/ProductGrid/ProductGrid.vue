@@ -10,7 +10,7 @@ const error = ref<string | null>(null);
 const props = defineProps({
   categoryId: {
     type: String,
-    required: true,
+    required: false,
   },
 });
 
@@ -31,9 +31,9 @@ onMounted(async () => {
   <div v-else-if="error">
     <p>Error: {{ error }}</p>
   </div>
-  <div v-else>
+  <div v-else class="flex items-start justify-center min-h-screen">
     <div
-        class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"
+        class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500 mt-20"
     ></div>
   </div>
 </template>

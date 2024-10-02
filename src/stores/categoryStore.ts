@@ -1,12 +1,13 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import { fetchCategories } from "@/api/useEcwidApi.ts";
+import {Category} from "@/types/Category.ts";
 
 export const useCategoryStore = defineStore('category', () => {
-    const categories = ref([]);
+    const categories = ref<Category[]>([]);
 
-    const getCategoryNameById = (id: string) => {
-        const category = categories.value.find((category: any) => category.id.toString()  === id);
+    const getCategoryNameById = (id: number) => {
+        const category = categories.value.find((category: Category) => category.id  === id);
         return category ? category.name : '';
     };
 
@@ -14,6 +15,7 @@ export const useCategoryStore = defineStore('category', () => {
         try {
             const data = await fetchCategories();
             // TODO: add TS interface
+            if (categories.value.length > 0) { return }
             categories.value = data.items;
         } catch (error) {
             console.error('Failed to fetch categories:', error);

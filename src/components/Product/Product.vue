@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue';
 import { fetchProductById } from '@/api/useEcwidApi.ts';
 import ProductComponent from "@/components/Product/ProductComponent.vue";
 import { useCartStore } from '@/stores/cartStore'
-import {CartItem } from "@/types/CartItem.ts";
+import { CartItem } from "@/types/CartItem.ts";
 
 const cartStore = useCartStore()
 const productData = ref(null);
@@ -16,6 +16,8 @@ const props = defineProps({
   },
 });
 
+const emits = defineEmits(['update-product-info']);
+
 const handleAddToCart = (product: CartItem) => {
   cartStore.addToCart(product);
 }
@@ -23,6 +25,7 @@ const handleAddToCart = (product: CartItem) => {
 onMounted(async () => {
   try {
     productData.value = await fetchProductById(props.id);
+    emits('update-product-info',  productData.value);
   } catch (err) {
     error.value = (err as Error).message || 'Failed to fetch product';
     console.error(err);

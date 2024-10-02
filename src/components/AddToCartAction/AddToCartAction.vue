@@ -3,7 +3,12 @@
       type="button"
       @click="handleButtonClick"
       :disabled="isLoading"
-      class="mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      :class="[
+      'mt-8 flex w-full items-center justify-center rounded-md border border-transparent px-8 py-3 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2',
+      isAdded
+        ? 'bg-black hover:bg-gray-800 focus:ring-black'
+        : 'bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500'
+    ]"
   >
     <template v-if="isLoading">
       <ArrowPathIcon class="h-5 w-5 mr-3 animate-spin text-white" />
@@ -24,7 +29,7 @@
 <script>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { ArrowPathIcon, ArrowRightIcon } from '@heroicons/vue/24/outline';
+import  { ArrowPathIcon, ArrowRightIcon } from '@heroicons/vue/24/outline';
 
 export default {
   components: {
