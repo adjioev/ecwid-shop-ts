@@ -9,7 +9,7 @@ const error = ref<string | null>(null);
 
 const props = defineProps({
   categoryId: {
-    type: String,
+    type: Number,
     required: false,
   },
 });

@@ -11,7 +11,7 @@ const error = ref<string | null>(null);
 
 const props = defineProps({
   id: {
-    type: String,
+    type: Number,
     required: true,
   },
 });

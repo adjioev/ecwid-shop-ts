@@ -7,7 +7,7 @@ import BreadcrumbsComponent from "@/components/Breadcrumbs/BreadcrumbsComponent.
 import {Breadcrumb} from "@/types/Breadcrumb.ts";
 
 const route = useRoute();
-const productId = route.params.id as number;
+const productId = Number(route.params.id);
 const pages = ref<Breadcrumb[]>([]);
 
 const updateProductInfo = (productInfo: any) => {

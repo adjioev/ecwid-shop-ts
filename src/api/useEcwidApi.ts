@@ -34,7 +34,7 @@ export const fetchProducts = async (): Promise<any> => {
 };
 
 // Fetch product by ID
-export const fetchProductById = async (productId: string): Promise<any> => {
+export const fetchProductById = async (productId: number): Promise<any> => {
     return apiRequest<any>(`products/${productId}`);
 };
 
@@ -44,6 +44,6 @@ export const fetchCategories = async (): Promise<any> => {
 };
 
 // fetch all category items
-export const fetchCategoryProducts = async (categoryId: string): Promise<any> => {
+export const fetchCategoryProducts = async (categoryId: number): Promise<any> => {
     return apiRequest<any>('products?category=' + categoryId);
 };
