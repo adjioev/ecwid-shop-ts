@@ -33,7 +33,6 @@ defineProps({
   },
 });
 
-
 const removeItemFromCart = (itemId: string) => {
   emit('remove-from-cart', itemId)
 }

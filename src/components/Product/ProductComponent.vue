@@ -20,15 +20,12 @@
           <div class="mt-8 lg:col-span-5">
             <form>
               <ProductSizeComponent :sizes="sizes"/>
-              <AddToCartAction @click="addItemToCart" />
+              <AddToCartAction :cartItem="cartItem"  />
             </form>
 
             <!-- Product details -->
             <div class="mt-10">
-              <h2 class="text-sm font-medium text-gray-900">
-                Description
-              </h2>
-
+              <h2 class="text-sm font-medium text-gray-900"> Description </h2>
               <div
                   class="prose prose-sm mt-4 text-gray-500"
                   v-html="productData.description"
@@ -40,10 +37,9 @@
 </template>
 
 <script setup lang="ts">
-import { PropType } from "vue";
+import {computed, PropType} from "vue";
 import AddToCartAction from "@/components/AddToCartAction/AddToCartAction.vue";
 import { Product } from '@/types/ProductInterfaces';
-import { CartItem } from "@/types/CartItem.ts";
 import ProductImagesComponent from "@/components/Product/ProductImagesComponent.vue";
 import ProductSizeComponent from "@/components/Product/ProductSizeComponent.vue";
 
@@ -54,24 +50,19 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits<{
-  (e: 'add-to-cart', product: CartItem): void
-}>()
-
-const addItemToCart = () => {
-  const product: CartItem = {
+const cartItem = computed(() => {
+  return {
     id: props.productData.id,
     name: props.productData.name,
     url: props.productData.thumbnailUrl,
     price: props.productData.price,
     inStock: props.productData.inStock,
     quantity: 1
-  };
+  }
+})
 
-  emit('add-to-cart', product)
-}
 
-//TODO: bind sized from API json
+//TODO:  fake bind sized from API json
   const sizes = [
     {name: "XXS", inStock: true},
     {name: "XS", inStock: true},
@@ -80,5 +71,4 @@ const addItemToCart = () => {
     {name: "L", inStock: true},
     {name: "XL", inStock: false},
   ];
-
 </script>

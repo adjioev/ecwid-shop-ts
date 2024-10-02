@@ -26,45 +26,41 @@
   </button>
 </template>
 
-<script>
-import { ref } from 'vue';
+<script setup lang="ts">
+import {PropType, ref} from 'vue';
 import { useRouter } from 'vue-router';
-import  { ArrowPathIcon, ArrowRightIcon } from '@heroicons/vue/24/outline';
+import { ArrowPathIcon, ArrowRightIcon } from '@heroicons/vue/24/outline';
+import { useCartStore } from '@/stores/cartStore';
+import { CartItem } from '@/types/CartItem.ts'
 
-export default {
-  components: {
-    ArrowPathIcon,
-    ArrowRightIcon,
-  },
-  setup() {
-    const isLoading = ref(false);
-    const isAdded = ref(false);
-    const router = useRouter();
+const props = defineProps({
+  cartItem: {
+    type: Object as PropType<CartItem>,
+    required: true,
+  }
+});
 
-    const handleButtonClick = () => {
-      if (isAdded.value) {
-        // Navigate to the cart page
-        router.push('/cart');
-      } else {
-        addItemToCart();
-      }
-    };
+const isLoading = ref(false);
+const isAdded = ref(false);
+const router = useRouter();
+const cartStore = useCartStore();
 
-    const addItemToCart = () => {
-      isLoading.value = true;
+const handleButtonClick = () => {
+  if (isAdded.value) {
+    router.push('/cart');
+  } else {
+    addItemToCart();
+  }
+};
 
-      // TODO: Logic for busket check goes here, faking a delay for now
-      setTimeout(() => {
-        isLoading.value = false;
-        isAdded.value = true;
-      }, 2000);
-    };
-
-    return {
-      isLoading,
-      isAdded,
-      handleButtonClick,
-    };
-  },
+const addItemToCart = () => {
+  isLoading.value = true;
+  // TODO: Logic for basket check goes here, faking a delay for now
+  // That should include a bucket check in read world
+  setTimeout(() => {
+    cartStore.addToCart(props.cartItem);
+    isLoading.value = false;
+    isAdded.value = true;
+  }, 1000);
 };
 </script>
