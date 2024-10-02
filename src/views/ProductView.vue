@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import {ref} from "vue";
 import {useCategoryStore} from "@/stores/categoryStore.ts";
-import { useRoute } from 'vue-router';
 import Product from "@/components/Product/Product.vue";
 import BreadcrumbsComponent from "@/components/Breadcrumbs/BreadcrumbsComponent.vue";
 import {Breadcrumb} from "@/types/Breadcrumb.ts";
 
-const route = useRoute();
-const productId = Number(route.params.id);
+const props = defineProps<{
+  id: string | number;
+}>();
+
+const productId = Number(props.id);
 const pages = ref<Breadcrumb[]>([]);
 
 const updateProductInfo = (productInfo: any) => {

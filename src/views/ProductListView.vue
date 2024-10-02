@@ -3,6 +3,9 @@ import ProductGrid from "@/components/ProductGrid/ProductGrid.vue";
 </script>
 
 <template>
+  <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl py-4">Categories</h1>
+  <div>Categories here</div>
+  <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl py-4">Products</h1>
   <ProductGrid />
 </template>
 

@@ -2,12 +2,15 @@
 import { computed } from 'vue';
 import BreadcrumbsComponent from "@/components/Breadcrumbs/BreadcrumbsComponent.vue";
 import ProductGrid from "@/components/ProductGrid/ProductGrid.vue";
-import {useRoute} from "vue-router";
 import { useCategoryStore } from '@/stores/categoryStore';
 
-const route = useRoute();
-const categoryId = Number(route.params.id);
 const categoryStore = useCategoryStore();
+
+const props = defineProps<{
+  id: string | number;
+}>();
+
+const categoryId = Number(props.id);
 
 const categoryName = computed(() => {
   return categoryStore.getCategoryNameById(categoryId) || '';
@@ -19,6 +22,7 @@ const pages = computed(() => [
 </script>
 
 <template>
+  <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl pb-8">{{ categoryName }}</h1>
   <BreadcrumbsComponent :pages="pages"/>
   <ProductGrid :categoryId="categoryId" />
 </template>
