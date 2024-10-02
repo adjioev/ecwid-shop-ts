@@ -19,7 +19,7 @@
 
           <div class="mt-8 lg:col-span-5">
             <form>
-              <ProductSizeComponent  :sizes="product.sizes"/>
+              <ProductSizeComponent :sizes="sizes"/>
               <AddToCartAction @click="addItemToCart" />
             </form>
 
@@ -40,10 +40,10 @@
 </template>
 
 <script setup lang="ts">
-import {PropType, ref} from "vue";
+import { PropType } from "vue";
 import AddToCartAction from "@/components/AddToCartAction/AddToCartAction.vue";
 import { Product } from '@/types/ProductInterfaces';
-import {CartItem} from "@/types/CartItem.ts";
+import { CartItem } from "@/types/CartItem.ts";
 import ProductImagesComponent from "@/components/Product/ProductImagesComponent.vue";
 import ProductSizeComponent from "@/components/Product/ProductSizeComponent.vue";
 
@@ -72,16 +72,13 @@ const addItemToCart = () => {
 }
 
 //TODO: bind sized from API json
-const product = {
-  sizes: [
+  const sizes = [
     {name: "XXS", inStock: true},
     {name: "XS", inStock: true},
     {name: "S", inStock: true},
     {name: "M", inStock: true},
     {name: "L", inStock: true},
     {name: "XL", inStock: false},
-  ]
-};
+  ];
 
-const selectedSize = ref(product.sizes[2]);
 </script>

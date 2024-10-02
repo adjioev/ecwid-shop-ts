@@ -19,3 +19,8 @@ export interface ProductImage {
     imageAlt: string;
     isMain: boolean;
 }
+
+export interface Size {
+    name: string,
+    inStock: boolean,
+}

@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import {RadioGroup, RadioGroupOption} from "@headlessui/vue";
+import {PropType, ref} from "vue";
+import {Size} from "@/types/ProductInterfaces.ts";
 
-defineProps({
+const props = defineProps({
   sizes: {
-    type: Array,
+    type: Array as PropType<Size[]>,
     required: true,
   },
 });
+const selectedSize = ref(props.sizes[2]);
 </script>
 
 <template>
