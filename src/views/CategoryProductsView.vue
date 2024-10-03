@@ -10,9 +10,9 @@ const props = defineProps<{
   id: string | number;
 }>();
 
-const categoryId = Number(props.id);
 
 const categoryName = computed(() => {
+  const categoryId = Number(props.id);
   return categoryStore.getCategoryNameById(categoryId) || '';
 });
 
@@ -23,9 +23,8 @@ const pages = computed(() => [
 
 <template>
   <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl pb-8">{{ categoryName }}</h1>
-  {{ props.id }}
   <BreadcrumbsComponent :pages="pages"/>
-  <ProductGrid :categoryId="categoryId" />
+  <ProductGrid :categoryId="props.id" />
 </template>
 
 <style scoped>

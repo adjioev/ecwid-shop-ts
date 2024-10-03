@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import {onMounted, ref} from 'vue';
+import {onMounted, ref, watch} from 'vue';
 import {fetchProducts, fetchCategoryProducts} from '@/api/useEcwidApi.ts';
 import ProductGridComponent from "./ProductGridComponent.vue";
-
 
 const productsData = ref(null);
 const error = ref<string | null>(null);
@@ -14,15 +13,20 @@ const props = defineProps({
   },
 });
 
-onMounted(async () => {
+const fetchData = async () => {
   try {
-    productsData.value =  props.categoryId ? await fetchCategoryProducts(props.categoryId) :await fetchProducts();
+    productsData.value = props.categoryId
+        ? await fetchCategoryProducts(props.categoryId)
+        : await fetchProducts();
   } catch (err) {
     error.value = (err as Error).message || 'Failed to fetch product';
     console.error(err);
   }
-});
+};
+onMounted(fetchData);
+watch(() => props.categoryId, fetchData);
 </script>
+
 
 <template>
   <div v-if="productsData">
