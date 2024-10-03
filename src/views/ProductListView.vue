@@ -5,11 +5,14 @@ import {useCategoryStore} from "@/stores/categoryStore.ts";
 </script>
 
 <template>
-  <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl py-4">Categories</h1>
-  <div>Categories here</div>
-  <CategoryList :categories="useCategoryStore().categories" />
-  <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl py-4">Products</h1>
-  <ProductGrid />
+  <div class="pb-16">
+    <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl py-4">Categories</h1>
+    <CategoryList :categories="useCategoryStore().categories" />
+  </div>
+  <div>
+    <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl py-4">Products</h1>
+    <ProductGrid />
+  </div>
 </template>
 
 <style scoped>
