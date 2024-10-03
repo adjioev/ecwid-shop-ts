@@ -14,13 +14,16 @@ export const useCategoryStore = defineStore('category', () => {
     const loadCategories = async () => {
         try {
             const data = await fetchCategories();
-            // TODO: add TS interface
             if (categories.value.length > 0) { return }
             categories.value = data.items;
         } catch (error) {
             console.error('Failed to fetch categories:', error);
         }
     };
+
+    // Fetch categories on store initialization
+    loadCategories();
+
 
     return { categories, loadCategories, getCategoryNameById };
 }, {

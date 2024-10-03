@@ -23,9 +23,12 @@ const pages = computed(() => [
 
 <template>
   <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl pb-8">{{ categoryName }}</h1>
+  {{ props.id }}
   <BreadcrumbsComponent :pages="pages"/>
   <ProductGrid :categoryId="categoryId" />
 </template>
 
 <style scoped>
 </style>
+
+

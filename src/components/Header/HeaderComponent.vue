@@ -106,7 +106,7 @@ const navigation  = computed(() => {
    const cat = categoryStore.categories;
    const mappedCategories = cat ? cat.map(category => ({
       name: category.name,
-      to: `/categories/${category.id}`,
+      to: { name: 'CategoryProducts', params: { id: category.id } },
       isExternal: false,
     })) : [];
 
