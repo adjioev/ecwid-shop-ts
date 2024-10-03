@@ -7,7 +7,7 @@ import { useCategoryStore } from '@/stores/categoryStore';
 const categoryStore = useCategoryStore();
 
 const props = defineProps<{
-  id: string | number;
+  id: string | undefined;
 }>();
 
 

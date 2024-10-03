@@ -8,15 +8,16 @@ const error = ref<string | null>(null);
 
 const props = defineProps({
   categoryId: {
-    type: Number,
+    type: String,
     required: false,
   },
 });
 
 const fetchData = async () => {
+  const categoryId = Number(props.categoryId);
   try {
-    productsData.value = props.categoryId
-        ? await fetchCategoryProducts(props.categoryId)
+    productsData.value = categoryId
+        ? await fetchCategoryProducts(categoryId)
         : await fetchProducts();
   } catch (err) {
     error.value = (err as Error).message || 'Failed to fetch product';
