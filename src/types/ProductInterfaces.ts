@@ -2,6 +2,8 @@ export interface Product {
     id: string;
     name: string;
     price: number;
+    imageUrl?: string;
+    imageAlt?: string;
     defaultCategoryId: number;
     defaultDisplayedPriceFormatted: string;
     description: string;
@@ -40,4 +42,8 @@ export interface Size {
     inStock: boolean,
 }
 
+export interface ProductResponse {
+    items: Product[];
+    count: number;
+}
 

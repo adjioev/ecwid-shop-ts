@@ -111,7 +111,7 @@ const navigation  = computed(() => {
     })) : [];
 
     return [
-        { name: 'Our Products', to: '/', isExternal: false },
+        { name: 'Our Products', to: '/products', isExternal: false },
         ...mappedCategories,
         { name: 'About', to: '/about', isExternal: false },
     ];

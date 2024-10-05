@@ -5,6 +5,7 @@ import AboutView from "./views/AboutView.vue";
 import CartView from './views/CartView.vue';
 import Default from './layouts/Default.vue';
 import CategoryProductsView from "@/views/CategoryProductsView.vue";
+import HomeView from "@/views/HomeView.vue";
 
 const routes = [
     {
@@ -14,7 +15,7 @@ const routes = [
             {
                 path: '',
                 name: "Home",
-                component: ProductListView,
+                component: HomeView,
             },
             {
                 path: 'products',

@@ -3,7 +3,7 @@
       <h2 id="products-heading" class="sr-only">Products</h2>
       <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
         <router-link
-            v-for="product in products.items"
+            v-for="product in products"
             :key="product.id"
             :to="{ name: 'ProductDetail', params: { id: product.id } }"
             class="group"
@@ -25,9 +25,12 @@
 </template>
 
 <script setup lang="ts">
+import {PropType} from "vue";
+import {Product} from "@/types/ProductInterfaces.ts";
+
 defineProps({
   products: {
-    type: Object,
+    type: Array as PropType<Product[]>,
     required: true,
   },
 });

@@ -9,6 +9,10 @@ const productsData = ref<Product[] | null>(null);
 const error = ref<string | null>(null);
 
 const props = defineProps({
+  limit: {
+    type: Number,
+    required: false,
+  },
   categoryId: {
     type: String,
     required: false,
@@ -23,9 +27,11 @@ const fetchData = async () => {
   try {
     loading.value = true;
     emits('start-loading');
-    productsData.value = categoryId
+    const response = categoryId
         ? await fetchCategoryProducts(categoryId)
         : await fetchProducts();
+
+    productsData.value = props.limit ?  response.items.slice(0, props.limit) : response.items;
     emits('update-product-info', productsData.value);
   } catch (err) {
     error.value = (err as Error).message || 'Failed to fetch product';

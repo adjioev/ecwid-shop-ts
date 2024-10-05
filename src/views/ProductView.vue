@@ -4,6 +4,7 @@ import {useCategoryStore} from "@/stores/categoryStore.ts";
 import Product from "@/components/Product/Product.vue";
 import BreadcrumbsComponent from "@/components/Breadcrumbs/BreadcrumbsComponent.vue";
 import {Breadcrumb} from "@/types/Breadcrumb.ts";
+import ContentContainer from "@/components/Containers/ContentContainer.vue";
 
 const props = defineProps<{
   id: string | number;
@@ -13,25 +14,27 @@ const productId = Number(props.id);
 const pages = ref<Breadcrumb[]>([]);
 
 const updateProductInfo = (productInfo: any) => {
-const categoryName = useCategoryStore().getCategoryNameById(productInfo.defaultCategoryId);
-pages.value = [
-  {
-    name: categoryName,
-    href: `/categories/${productInfo.defaultCategoryId }`,
-    current: false,
-  },
-  {
-    name: productInfo.name,
-    href: `/products/${productInfo.id}`,
-    current: true,
-  },
-];
+  const categoryName = useCategoryStore().getCategoryNameById(productInfo.defaultCategoryId);
+  pages.value = [
+    {
+      name: categoryName,
+      href: `/categories/${productInfo.defaultCategoryId}`,
+      current: false,
+    },
+    {
+      name: productInfo.name,
+      href: `/products/${productInfo.id}`,
+      current: true,
+    },
+  ];
 }
 </script>
 
 <template>
-  <BreadcrumbsComponent :pages="pages" />
-  <Product :id="productId" @update-product-info="updateProductInfo" />
+  <ContentContainer>
+    <BreadcrumbsComponent :pages="pages"/>
+    <Product :id="productId" @update-product-info="updateProductInfo"/>
+  </ContentContainer>
 </template>
 
 <style scoped>

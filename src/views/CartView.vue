@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import Cart from "@/components/Cart/Cart.vue";
+import ContentContainer from "@/components/Containers/ContentContainer.vue";
 </script>
 
 <template>
-  <Cart />
+  <ContentContainer>
+    <Cart />
+  </ContentContainer>
 </template>
 
 <style scoped>

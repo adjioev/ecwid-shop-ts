@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "dev:fake": "VITE_USE_FAKE_API=true vite",
+    "test": "vitest",
     "build": "vue-tsc -b && vite build && cp dist/index.html dist/200.html",
     "deploy": "surge dist ecwid-demo-shop.surge.sh",
     "preview": "vite preview",
