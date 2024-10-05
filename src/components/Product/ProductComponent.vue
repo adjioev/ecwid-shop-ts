@@ -63,7 +63,7 @@ const cartItem = computed(() => {
 })
 
 const productSizes = computed(() => {
-  const sizeOption =  props.productData.options.find((option) => option.type === "SIZE");
+  const sizeOption =  props.productData.options?.find((option) => option.type === "SIZE");
   return sizeOption ? sizeOption.choices.map(size => {
     return {
       name: size.text,

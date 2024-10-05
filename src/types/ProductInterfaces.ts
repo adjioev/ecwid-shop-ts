@@ -11,6 +11,7 @@ export interface Product {
     media: {
         images: ProductImage[];
     };
+    options?: Option[];
 }
 
 export interface ProductImage {
@@ -18,6 +19,20 @@ export interface ProductImage {
     imageOriginalUrl: string;
     imageAlt: string;
     isMain: boolean;
+}
+
+
+export interface Option {
+    type: string;
+    name: string;
+    choices: Choice[];  // List of choices like S, M, L, etc.
+    defaultChoice: number;
+    required: boolean;
+}
+
+export interface Choice {
+    text: string;
+    priceModifier: number;
 }
 
 export interface Size {
