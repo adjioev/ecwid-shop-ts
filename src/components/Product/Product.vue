@@ -29,8 +29,8 @@ onMounted(async () => {
   <div v-if="productData">
       <ProductComponent :productData="productData"  />
   </div>
-  <div v-else-if="error">
-    <p>Error: {{ error }}</p>
+  <div v-else-if="error" class="flex items-center justify-center min-h-[calc(100vh-44rem)] text-center">
+    <h1 class="text-4xl">Sorry, sometething went wrong! Looks like we can't find this product...</h1>
   </div>
   <div v-else>
   </div>

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import Cart from "@/components/Cart/Cart.vue";
 </script>
 

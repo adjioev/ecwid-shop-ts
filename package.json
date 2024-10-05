@@ -43,5 +43,10 @@
     "vite": "^5.4.1",
     "vite-tsconfig-paths": "^5.0.1",
     "vue-tsc": "^2.0.29"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

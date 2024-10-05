@@ -7,6 +7,8 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
+    "allowJs": true,       // Allows JavaScript files to be imported
+    "checkJs": false,      // Avoids TypeScript checking JavaScript files
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
@@ -24,5 +26,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/*.js"],  // Include .js files
+  "exclude": ["node_modules"]
 }

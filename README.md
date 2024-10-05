@@ -1,3 +1,23 @@
+## Dev notes
+
+Application is developed using Vue 3, TypeScript, Vite, Tailwind CSS, Jest, MSW, Storybook.
+
+### MSW
+- Mock Service Worker is used to mock the API calls. It is used to mock the API calls in the tests.
+- To start in msw - npm run dev:fake
+
+### Storybook
+- Storybook is used to create the components in isolation.
+- To start in storybook - npm run storybook
+
+
+### Deploy
+# App is deployed to Surge - https://ecwid-demo-shop.surge.sh/
+# To redeploy - npm run deploy
+
+### Configuration
+- The configuration is done in the .env file
+
 ## Test task for TypeScript/Vue.js developer in Ecwid
 
 ## Goal
