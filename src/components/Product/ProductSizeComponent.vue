@@ -9,7 +9,7 @@ const props = defineProps({
     required: true,
   },
 });
-const selectedSize = ref(props.sizes[2]);
+const selectedSize = ref(props.sizes[0]);
 </script>
 
 <template>
@@ -56,11 +56,7 @@ const selectedSize = ref(props.sizes[2]);
       </RadioGroup>
     </fieldset>
   </div>
-
-
-
 </template>
 
 <style scoped>
-
 </style>

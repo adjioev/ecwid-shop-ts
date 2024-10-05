@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import {PropType} from "vue";
+import { ProductImage } from "@/types/ProductInterfaces.ts";
+
 defineProps({
-  images: Object,
+  images: Array as PropType<ProductImage[]>,
 });
 </script>
 
@@ -22,9 +25,7 @@ defineProps({
       />
     </div>
   </div>
-
 </template>
 
 <style scoped>
-
 </style>
