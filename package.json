@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:fake": "VITE_USE_FAKE_API=true vite",
     "build": "vue-tsc -b && vite build && cp dist/index.html dist/200.html",
     "deploy": "surge dist ecwid-demo-shop.surge.sh",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.23",
@@ -19,10 +22,21 @@
     "vue-router": "^4.4.5"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^1.9.0",
+    "@storybook/addon-essentials": "^8.3.5",
+    "@storybook/addon-interactions": "^8.3.5",
+    "@storybook/addon-links": "^8.3.5",
+    "@storybook/addon-onboarding": "^8.3.5",
+    "@storybook/blocks": "^8.3.5",
+    "@storybook/test": "^8.3.5",
+    "@storybook/vue3": "^8.3.5",
+    "@storybook/vue3-vite": "^8.3.5",
     "@types/node": "^22.7.4",
     "@vitejs/plugin-vue": "^5.1.2",
     "autoprefixer": "^10.4.20",
+    "msw": "^2.4.9",
     "postcss": "^8.4.47",
+    "storybook": "^8.3.5",
     "tailwindcss": "^3.4.13",
     "typescript": "^5.5.3",
     "vite": "^5.4.1",
