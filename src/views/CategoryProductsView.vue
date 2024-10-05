@@ -10,7 +10,6 @@ const props = defineProps<{
   id: string | undefined;
 }>();
 
-
 const categoryName = computed(() => {
   const categoryId = Number(props.id);
   return categoryStore.getCategoryNameById(categoryId) || '';
