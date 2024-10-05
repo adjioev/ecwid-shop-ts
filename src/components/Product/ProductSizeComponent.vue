@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {RadioGroup, RadioGroupOption} from "@headlessui/vue";
-import {PropType, ref} from "vue";
-import {Size} from "@/types/ProductInterfaces.ts";
+import { RadioGroup, RadioGroupOption } from "@headlessui/vue";
+import { PropType, ref } from "vue";
+import { Size } from "@/types/ProductInterfaces.ts";
 
 const props = defineProps({
   sizes: {
@@ -10,24 +10,17 @@ const props = defineProps({
   },
 });
 const selectedSize = ref(props.sizes[0]);
+const sizeLabel = props.sizes?.length > 0 ? "Sizes" : "Sizes are not available";
 </script>
 
 <template>
   <div class="mt-8">
     <div class="flex items-center justify-between">
-      <h2 class="text-sm font-medium text-gray-900" >
-        Size
-      </h2>
+      <h2 class="text-sm font-medium text-gray-900" >{{ sizeLabel }}</h2>
     </div>
 
-    <fieldset
-        aria-label="Choose a size"
-        class="mt-2"
-    >
-      <RadioGroup
-          v-model="selectedSize"
-          class="grid grid-cols-3 gap-3 sm:grid-cols-6"
-      >
+    <fieldset aria-label="Choose a size" class="mt-2" >
+      <RadioGroup v-model="selectedSize" class="grid grid-cols-3 gap-3 sm:grid-cols-6" >
         <RadioGroupOption
             as="template"
             v-for="size in sizes"
