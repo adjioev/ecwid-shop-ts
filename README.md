@@ -1,6 +1,6 @@
 ## Dev notes
 
-Application is developed using Vue 3, TypeScript, Vite, Tailwind CSS, Jest, MSW, Storybook.
+Application is developed using Vue 3, TypeScript, Vite, Tailwind CSS, Jest, MSW, Storybook, Vitest.
 
 ### MSW
 - Mock Service Worker is used to mock the API calls. It is used to mock the API calls in the tests.
@@ -17,6 +17,10 @@ Application is developed using Vue 3, TypeScript, Vite, Tailwind CSS, Jest, MSW,
 
 ### Configuration
 - The configuration is done in the .env file
+
+### Testing
+-  Vitest is used for testing
+- To run the tests - npm run test
 
 ## Test task for TypeScript/Vue.js developer in Ecwid
 
