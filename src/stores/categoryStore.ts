@@ -24,7 +24,6 @@ export const useCategoryStore = defineStore('category', () => {
     // Fetch categories on store initialization
     loadCategories();
 
-
     return { categories, loadCategories, getCategoryNameById };
 }, {
     persist: {

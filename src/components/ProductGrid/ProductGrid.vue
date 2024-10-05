@@ -2,9 +2,10 @@
 import {onMounted, ref, watch} from 'vue';
 import {fetchProducts, fetchCategoryProducts} from '@/api/useEcwidApi.ts';
 import ProductGridComponent from "./ProductGridComponent.vue";
+import {Product} from "@/types/ProductInterfaces.ts";
 
 const loading = ref(false);
-const productsData = ref(null);
+const productsData = ref<Product[] | null>(null);
 const error = ref<string | null>(null);
 
 const props = defineProps({

@@ -1,4 +1,8 @@
 // Access environment variables from .env file
+
+import {CategoryResponse} from "@/types/Category.ts";
+import {Product} from "@/types/ProductInterfaces.ts";
+
 const STORE_ID = import.meta.env.VITE_STORE_ID;
 const TOKEN = import.meta.env.VITE_API_TOKEN;
 const BASE_URL = `${import.meta.env.VITE_BASE_URL}${STORE_ID}/`;
@@ -29,21 +33,21 @@ const apiRequest = async <T>(endpoint: string, options: RequestInit = {}): Promi
 
 // Fetch all products
 // TODO: demo version, its must support pagination
-export const fetchProducts = async (): Promise<any> => {
-    return apiRequest<any>('products');
+export const fetchProducts = async (): Promise<Product[]> => {
+    return apiRequest<Product[]>('products');
 };
 
 // Fetch product by ID
-export const fetchProductById = async (productId: number): Promise<any> => {
-    return apiRequest<any>(`products/${productId}`);
+export const fetchProductById = async (productId: number): Promise<Product> => {
+    return apiRequest<Product>(`products/${productId}`);
 };
 
 // Fetch all categories
-export const fetchCategories = async (): Promise<any> => {
-    return apiRequest<any>('categories');
+export const fetchCategories = async (): Promise<CategoryResponse> => {
+    return apiRequest<CategoryResponse>('categories');
 };
 
 // fetch all category items
-export const fetchCategoryProducts = async (categoryId: number): Promise<any> => {
-    return apiRequest<any>('products?category=' + categoryId);
+export const fetchCategoryProducts = async (categoryId: number): Promise<Product[]> => {
+    return apiRequest<Product[]>('products?category=' + categoryId);
 };

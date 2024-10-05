@@ -39,3 +39,5 @@ export interface Size {
     name: string,
     inStock: boolean,
 }
+
+

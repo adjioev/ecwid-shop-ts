@@ -2,7 +2,8 @@
 import { ref, onMounted } from 'vue';
 import { fetchProductById } from '@/api/useEcwidApi.ts';
 import ProductComponent from "@/components/Product/ProductComponent.vue";
-const productData = ref(null);
+import {Product} from "@/types/ProductInterfaces.ts";
+const productData = ref<Product | null>(null);
 const error = ref<string | null>(null);
 
 const props = defineProps({
