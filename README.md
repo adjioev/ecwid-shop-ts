@@ -12,8 +12,8 @@ Application is developed using Vue 3, TypeScript, Vite, Tailwind CSS, Jest, MSW,
 
 
 ### Deploy
-# App is deployed to Surge - https://ecwid-demo-shop.surge.sh/
-# To redeploy - npm run deploy
+- App is deployed to Surge - https://ecwid-demo-shop.surge.sh/
+- To redeploy - npm run deploy
 
 ### Configuration
 - The configuration is done in the .env file
